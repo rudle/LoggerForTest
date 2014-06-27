@@ -1,6 +1,6 @@
 # LoggerForTest
 
-LoggerForTest is a Logger(http://www.ruby-doc.org/stdlib-2.1.2/libdoc/logger/rdoc/Logger.html) API compatible logger that lets you inspect the contents of a log
+LoggerForTest is a [Logger](http://www.ruby-doc.org/stdlib-2.1.2/libdoc/logger/rdoc/Logger.html) API compatible logger that lets you inspect the contents of a log
 without hitting the disk. You probably want to replace the `Logger` constant in your app with this in your `spec_helper.rb`.
 
 ## Installation
