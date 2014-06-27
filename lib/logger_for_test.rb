@@ -7,6 +7,7 @@ require 'delegate'
 # LoggerForTest.new(Logger.new(STDOUT))
 # LoggerForTest.new(Rails.logger))
 class LoggerForTest < SimpleDelegator
+  VERSION = '0.0.1'
   def initialize(*args)
     super
     @log_lines = []

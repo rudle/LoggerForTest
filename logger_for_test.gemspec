@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'logger_for_test/version'
+require 'logger_for_test'
 
 Gem::Specification.new do |spec|
   spec.name          = 'logger_for_test'
@@ -19,6 +19,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_development_dependency 'bundler', '~> 1.6'
+  spec.add_development_dependency 'minitest'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rubocop'
 end
