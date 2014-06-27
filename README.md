@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/rudle/LoggerForTest.svg?branch=master)](https://travis-ci.org/rudle/LoggerForTest)
 # LoggerForTest
 
 LoggerForTest is a [Logger](http://www.ruby-doc.org/stdlib-2.1.2/libdoc/logger/rdoc/Logger.html) API compatible logger that lets you inspect the contents of a log
