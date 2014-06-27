@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require_relative '../test_helper'
 require_relative '../../lib/logger_for_test'
 

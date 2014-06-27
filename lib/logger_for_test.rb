@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'delegate'
 
 # This is the implementation of Logger that stores an in memory representation
