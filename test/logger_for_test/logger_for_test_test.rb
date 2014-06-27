@@ -28,4 +28,20 @@ describe LoggerForTest do
                                       progname: 'progname' }]
     end
   end
+
+  describe '#has_log?' do
+    it 'shall be true if the specified log line is in the logger' do
+      @logger = LoggerForTest.new(NullLogger.new)
+      @logger.add('error', 'something went wrong')
+
+      @logger.has_log?('error', 'something went wrong').must_equal true
+    end
+  end
+end
+
+# A NullObject instead of a picky mock
+class NullLogger
+  def add(*)
+    nil
+  end
 end

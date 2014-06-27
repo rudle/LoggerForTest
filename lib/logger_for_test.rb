@@ -15,12 +15,18 @@ class LoggerForTest < SimpleDelegator
   end
   attr_accessor :log_lines
 
-  def add(sev, message = nil, progname = nil)
+  def add(sev, message, progname = nil)
     log_lines << format(sev, message, progname)
     super(sev, message, progname)
   end
 
-  def format(sev, message, progname)
+  def contains_log?(sev, message, progname = nil)
+    log_lines.any? { |line| format(sev, message, progname) == line }
+  end
+
+  private
+
+  def format(sev, message, progname = nil)
     { sev: sev,
       message: message,
       progname: progname }
