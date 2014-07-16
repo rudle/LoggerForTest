@@ -29,12 +29,19 @@ describe LoggerForTest do
     end
   end
 
-  describe '#has_log?' do
+  describe '#contains_log?' do
     it 'shall be true if the specified log line is in the logger' do
       @logger = LoggerForTest.new(NullLogger.new)
       @logger.add('error', 'something went wrong')
 
-      @logger.has_log?('error', 'something went wrong').must_equal true
+      @logger.contains_log?('something went wrong', 'error').must_equal true
+    end
+
+    it 'shall allow the severity to be elided' do
+      @logger = LoggerForTest.new(NullLogger.new)
+      @logger.add('error', 'something went wrong')
+
+      @logger.contains_log?('something went wrong').must_equal true
     end
   end
 end

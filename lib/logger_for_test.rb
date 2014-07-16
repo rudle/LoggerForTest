@@ -16,17 +16,24 @@ class LoggerForTest < SimpleDelegator
   attr_accessor :log_lines
 
   def add(sev, message, progname = nil)
-    log_lines << format(sev, message, progname)
+    log_lines << format(message, sev, progname)
     super(sev, message, progname)
   end
 
-  def contains_log?(sev, message, progname = nil)
-    log_lines.any? { |line| format(sev, message, progname) == line }
+  def contains_log?(message, sev = nil, progname = nil)
+    filtered_by(sev, progname).any? { |line| message == line.fetch(:message) }
   end
 
   private
 
-  def format(sev, message, progname = nil)
+  def filtered_by(sev = nil, progname = nil)
+    log_lines.select do |line|
+      line[:sev] == sev || sev.nil?
+      line[:progname] == progname || progname.nil?
+    end
+  end
+
+  def format(message, sev = nil, progname = nil)
     { sev: sev,
       message: message,
       progname: progname }
