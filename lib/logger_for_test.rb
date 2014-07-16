@@ -21,7 +21,9 @@ class LoggerForTest < SimpleDelegator
   end
 
   def contains_log?(message, sev = nil, progname = nil)
-    filtered_by(sev, progname).any? { |line| message == line.fetch(:message) }
+    filtered_by(sev, progname).any? do |line|
+      line.fetch(:message) =~ Regexp.new(message)
+    end
   end
 
   private

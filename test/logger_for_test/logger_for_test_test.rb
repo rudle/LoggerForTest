@@ -43,6 +43,13 @@ describe LoggerForTest do
 
       @logger.contains_log?('something went wrong').must_equal true
     end
+
+    it 'shall allow a regex to be used' do
+      @logger = LoggerForTest.new(NullLogger.new)
+      @logger.add('error', 'something went wrong')
+
+      @logger.contains_log?(/something went/).must_equal true
+    end
   end
 end
 
